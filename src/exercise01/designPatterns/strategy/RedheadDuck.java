@@ -7,6 +7,6 @@ public class RedheadDuck extends Duck {
     }
 
     public void display() {
-        System.out.println("I'm a real Red Headed duck");
+        System.out.println("I'm a Real Red Headed duck");
     }
 }
