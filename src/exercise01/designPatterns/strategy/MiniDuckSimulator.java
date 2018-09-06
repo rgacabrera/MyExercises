@@ -7,15 +7,21 @@ public class MiniDuckSimulator {
         MallardDuck mallard = new MallardDuck();
         RubberDuck rubberDuckie = new RubberDuck();
         DecoyDuck decoy = new DecoyDuck();
+        RedheadDuck redheadDuck = new RedheadDuck();
 
         ModelDuck model = new ModelDuck();
 
         mallard.performQuack();
         rubberDuckie.performQuack();
         decoy.performQuack();
+        redheadDuck.display();
+        redheadDuck.performQuack();
+        redheadDuck.performFly();
 
         model.performFly();
         model.setFlyBehavior(new FlyRocketPowered());
         model.performFly();
+
+
     }
 }

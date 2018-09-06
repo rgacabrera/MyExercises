@@ -1,7 +1,7 @@
 package exercise01.designPatterns.strategy;
 
-public class ReadheadDuck extends Duck {
-    public ReadheadDuck() {
+public class RedheadDuck extends Duck {
+    public RedheadDuck() {
         flyBehavior = new FlyWithWings();
         quackBehavior = new Quack();
     }

@@ -3,7 +3,7 @@ package exercise01.designPatterns.strategy;
 public class RubberDuck extends Duck {
     public RubberDuck() {
         flyBehavior = new FlyNoWay();
-        quackBehavior = new Quack();
+        quackBehavior = new Squeak();
     }
 
     public void display() {
