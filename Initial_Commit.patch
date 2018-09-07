@@ -1,0 +1,534 @@
+Index: src/exercise01/designPatterns/strategy/ReadheadDuck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/ReadheadDuck.java	(date 1536186654819)
++++ src/exercise01/designPatterns/strategy/ReadheadDuck.java	(date 1536186654819)
+@@ -0,0 +1,12 @@
++package exercise01.designPatterns.strategy;
++
++public class ReadheadDuck extends Duck {
++    public ReadheadDuck() {
++        flyBehavior = new FlyWithWings();
++        quackBehavior = new Quack();
++    }
++
++    public void display() {
++        System.out.println("I'm a real Red Headed duck");
++    }
++}
+Index: MyExercises.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- MyExercises.iml	(date 1536173943602)
++++ MyExercises.iml	(date 1536173943602)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
++
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1536173944202)
++++ .idea/misc.xml	(date 1536173944202)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EntryPointsManager">
++    <entry_points version="2.0" />
++  </component>
++  <component name="ProjectKey">
++    <option name="state" value="project://e2804f05-5315-4fc6-a121-c522a6c26470" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/exercise01/designPatterns/strategy/FlyNoWay.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/FlyNoWay.java	(date 1536184382321)
++++ src/exercise01/designPatterns/strategy/FlyNoWay.java	(date 1536184382321)
+@@ -0,0 +1,8 @@
++package exercise01.designPatterns.strategy;
++
++public class FlyNoWay implements FlyBehavior {
++    @Override
++    public void fly() {
++        System.out.println("No flying...");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/RubberDuck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/RubberDuck.java	(date 1536186654842)
++++ src/exercise01/designPatterns/strategy/RubberDuck.java	(date 1536186654842)
+@@ -0,0 +1,12 @@
++package exercise01.designPatterns.strategy;
++
++public class RubberDuck extends Duck {
++    public RubberDuck() {
++        flyBehavior = new FlyNoWay();
++        quackBehavior = new Quack();
++    }
++
++    public void display() {
++        System.out.println("I'm a rubber duckie");
++    }
++}
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(date 1536174530224)
++++ .idea/modules.xml	(date 1536174530224)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/MyExercises.iml" filepath="$PROJECT_DIR$/MyExercises.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/exercise01/designPatterns/strategy/DecoyDuck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/DecoyDuck.java	(date 1536186654886)
++++ src/exercise01/designPatterns/strategy/DecoyDuck.java	(date 1536186654886)
+@@ -0,0 +1,12 @@
++package exercise01.designPatterns.strategy;
++
++public class DecoyDuck extends Duck {
++    public DecoyDuck() {
++        flyBehavior = new FlyNoWay();
++        quackBehavior = new MuteQuack();
++    }
++
++    public void display() {
++        System.out.println("I'm a duck Decoy");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/QuackBehavior.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/QuackBehavior.java	(date 1536184695867)
++++ src/exercise01/designPatterns/strategy/QuackBehavior.java	(date 1536184695867)
+@@ -0,0 +1,5 @@
++package exercise01.designPatterns.strategy;
++
++public interface QuackBehavior {
++    public void quack();
++}
+Index: .idea/project-template.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/project-template.xml	(date 1536173943550)
++++ .idea/project-template.xml	(date 1536173943550)
+@@ -0,0 +1,3 @@
++<template>
++  <input-field default="com.company">IJ_BASE_PACKAGE</input-field>
++</template>
+\ No newline at end of file
+Index: src/exercise01/designPatterns/strategy/FakeQuack.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/FakeQuack.java	(date 1536188169180)
++++ src/exercise01/designPatterns/strategy/FakeQuack.java	(date 1536188169180)
+@@ -0,0 +1,8 @@
++package exercise01.designPatterns.strategy;
++
++public class FakeQuack implements QuackBehavior {
++    @Override
++    public void quack() {
++        System.out.println("Qwak!!!");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/Quack.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/Quack.java	(date 1536184709939)
++++ src/exercise01/designPatterns/strategy/Quack.java	(date 1536184709939)
+@@ -0,0 +1,8 @@
++package exercise01.designPatterns.strategy;
++
++public class Quack implements QuackBehavior {
++    @Override
++    public void quack() {
++        System.out.println("Duck is quacking...");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/FlyRocketPowered.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/FlyRocketPowered.java	(date 1536188169218)
++++ src/exercise01/designPatterns/strategy/FlyRocketPowered.java	(date 1536188169218)
+@@ -0,0 +1,8 @@
++package exercise01.designPatterns.strategy;
++
++public class FlyRocketPowered implements FlyBehavior {
++    @Override
++    public void fly() {
++        System.out.println("I'm flying with a rocket");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/Squeak.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/Squeak.java	(date 1536184814609)
++++ src/exercise01/designPatterns/strategy/Squeak.java	(date 1536184814609)
+@@ -0,0 +1,8 @@
++package exercise01.designPatterns.strategy;
++
++public class Squeak implements QuackBehavior {
++    @Override
++    public void quack() {
++        System.out.println("Quack that squeak");
++    }
++}
+Index: .idea/description.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/description.html	(date 1536173943527)
++++ .idea/description.html	(date 1536173943527)
+@@ -0,0 +1,1 @@
++<html>Simple <b>Java</b> application that includes a class with <code>main()</code> method</html>
+\ No newline at end of file
+Index: src/exercise01/designPatterns/strategy/ModelDuck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/ModelDuck.java	(date 1536188169206)
++++ src/exercise01/designPatterns/strategy/ModelDuck.java	(date 1536188169206)
+@@ -0,0 +1,12 @@
++package exercise01.designPatterns.strategy;
++
++public class ModelDuck extends Duck {
++    public ModelDuck() {
++        flyBehavior = new FlyNoWay();
++        quackBehavior = new Quack();
++    }
++
++    public void display() {
++        System.out.println("I'm a model duck!");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/MuteQuack.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/MuteQuack.java	(date 1536184995144)
++++ src/exercise01/designPatterns/strategy/MuteQuack.java	(date 1536184995144)
+@@ -0,0 +1,8 @@
++package exercise01.designPatterns.strategy;
++
++public class MuteQuack implements QuackBehavior {
++    @Override
++    public void quack() {
++        System.out.println("<<silence>>");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/Duck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/Duck.java	(date 1536186654792)
++++ src/exercise01/designPatterns/strategy/Duck.java	(date 1536186654792)
+@@ -0,0 +1,28 @@
++package exercise01.designPatterns.strategy;
++
++public abstract class Duck {
++    FlyBehavior flyBehavior;
++    QuackBehavior quackBehavior;
++
++    public void setFlyBehavior(FlyBehavior flyBehavior) {
++        this.flyBehavior = flyBehavior;
++    }
++
++    public void setQuackBehavior(QuackBehavior quackBehavior) {
++        this.quackBehavior = quackBehavior;
++    }
++
++    abstract void display();
++
++    public void performQuack() {
++        quackBehavior.quack();
++    }
++
++    public void performFly() {
++        flyBehavior.fly();
++    }
++
++    public void swim() {
++        System.out.println("All ducks float, even decoys!");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/MallardDuck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/MallardDuck.java	(date 1536186654867)
++++ src/exercise01/designPatterns/strategy/MallardDuck.java	(date 1536186654867)
+@@ -0,0 +1,12 @@
++package exercise01.designPatterns.strategy;
++
++public class MallardDuck extends Duck {
++    public MallardDuck() {
++        flyBehavior = new FlyWithWings();
++        quackBehavior = new Quack();
++    }
++
++    public void display() {
++        System.out.println("I'm a real Mallard duck");
++    }
++}
+Index: src/exercise01/designPatterns/strategy/MiniDuckSimulator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/MiniDuckSimulator.java	(date 1536188169193)
++++ src/exercise01/designPatterns/strategy/MiniDuckSimulator.java	(date 1536188169193)
+@@ -0,0 +1,21 @@
++package exercise01.designPatterns.strategy;
++
++
++public class MiniDuckSimulator {
++
++    public static void main(String[] args) {
++        MallardDuck mallard = new MallardDuck();
++        RubberDuck rubberDuckie = new RubberDuck();
++        DecoyDuck decoy = new DecoyDuck();
++
++        ModelDuck model = new ModelDuck();
++
++        mallard.performQuack();
++        rubberDuckie.performQuack();
++        decoy.performQuack();
++
++        model.performFly();
++        model.setFlyBehavior(new FlyRocketPowered());
++        model.performFly();
++    }
++}
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/uiDesigner.xml	(date 1536179752243)
++++ .idea/uiDesigner.xml	(date 1536179752243)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.png" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1536255702248)
++++ .idea/vcs.xml	(date 1536255702248)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/exercise01/designPatterns/strategy/FlyBehavior.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/FlyBehavior.java	(date 1536184207175)
++++ src/exercise01/designPatterns/strategy/FlyBehavior.java	(date 1536184207175)
+@@ -0,0 +1,6 @@
++package exercise01.designPatterns.strategy;
++
++public interface FlyBehavior {
++
++    public void fly();
++}
+Index: src/exercise01/designPatterns/strategy/FlyWithWings.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/exercise01/designPatterns/strategy/FlyWithWings.java	(date 1536184382297)
++++ src/exercise01/designPatterns/strategy/FlyWithWings.java	(date 1536184382297)
+@@ -0,0 +1,10 @@
++package exercise01.designPatterns.strategy;
++
++public class FlyWithWings implements FlyBehavior {
++    @Override
++    public void fly() {
++        System.out.println("I'm Flying...");
++    }
++}
++
++
