@@ -1,4 +1,4 @@
-package exercise02.designPatterns.observer;
+package exercise02.designPatterns.observer.weather;
 
 public interface Observer {
 

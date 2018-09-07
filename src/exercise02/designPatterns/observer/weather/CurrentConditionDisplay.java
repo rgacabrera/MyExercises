@@ -1,4 +1,4 @@
-package exercise02.designPatterns.observer;
+package exercise02.designPatterns.observer.weather;
 
 public class CurrentConditionDisplay implements Observer {
     private Subject weatherData;

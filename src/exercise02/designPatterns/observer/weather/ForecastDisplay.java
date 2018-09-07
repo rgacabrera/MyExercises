@@ -1,4 +1,4 @@
-package exercise02.designPatterns.observer;
+package exercise02.designPatterns.observer.weather;
 
 public class ForecastDisplay implements Observer, DisplayElement {
     private float currentPressure = 29.9f;
